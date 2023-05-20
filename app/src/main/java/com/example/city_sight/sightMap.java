@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.yandex.mapkit.Animation;
-import com.yandex.mapkit.MapKit;
 import com.yandex.mapkit.MapKitFactory;
 import com.yandex.mapkit.geometry.Point;
 import com.yandex.mapkit.map.CameraPosition;
@@ -17,9 +16,6 @@ public class sightMap extends AppCompatActivity {
     MapView mapview;
     TextView textView;
     TextView textView2;
-//    TextView textView3;
-//    TextView textView4;
-//    TextView textView5;
 
     Sight sight = new Sight();
 
@@ -27,7 +23,6 @@ public class sightMap extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        MapKitFactory.setApiKey("3e9ed211-3558-476a-ab52-9b29735e3a9e");
         setContentView(R.layout.activity_sight_map);
         Bundle arguments = getIntent().getExtras();
         sight.setTitle(arguments.getString("title"));
