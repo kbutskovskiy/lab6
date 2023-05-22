@@ -21,7 +21,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="8dp"
         android:text="TextView"
-        android:textColor="#E30E0E"
+        android:textColor="#47E30E"
         android:textSize="20sp" />
 
     <ScrollView

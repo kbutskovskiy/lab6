@@ -3,6 +3,7 @@ package com.example.city_sight;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -16,6 +17,8 @@ public class sightMap extends AppCompatActivity {
     MapView mapview;
     TextView textView;
     TextView textView2;
+
+    User user = new User();
 
     Sight sight = new Sight();
 
@@ -48,6 +51,16 @@ public class sightMap extends AppCompatActivity {
         mapview.onStop();
         MapKitFactory.getInstance().onStop();
         super.onStop();
+    }
+
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        Intent intent = new Intent(this, sightList.class);
+        intent.putExtra("name", user.getName());
+        intent.putExtra("surname", user.getSurname());
+        intent.putExtra("email", user.getEmail());
+        startActivity(intent);
     }
 
     @Override

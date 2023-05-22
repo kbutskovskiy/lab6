@@ -67,6 +67,13 @@ public class sightList extends AppCompatActivity{
     TextView textView;
 
     @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         MapKitFactory.setApiKey("3e9ed211-3558-476a-ab52-9b29735e3a9e");

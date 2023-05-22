@@ -68,7 +68,7 @@
         android:layout_marginTop="232dp"
         android:ems="10"
         android:inputType="text"
-        android:hint="e.g Иванов"
+        android:hint="Например: Буцковский"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -86,7 +86,7 @@
         android:layout_marginTop="56dp"
         android:ems="10"
         android:inputType="text"
-        android:hint="e.g Иван"
+        android:hint="Например: Кирилл"
         app:layout_constraintStart_toStartOf="@+id/surnameInput"
         app:layout_constraintTop_toBottomOf="@+id/surnameInput" />
 
@@ -103,7 +103,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="52dp"
         android:ems="10"
-        android:hint="e.g ivanov@gmail.com"
+        android:hint="Например: example@mail.ru"
         android:inputType="textEmailAddress"
         app:layout_constraintStart_toStartOf="@+id/nameInput"
         app:layout_constraintTop_toBottomOf="@+id/nameInput" />
