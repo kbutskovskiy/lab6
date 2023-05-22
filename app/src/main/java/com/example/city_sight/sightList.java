@@ -76,7 +76,6 @@ public class sightList extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        MapKitFactory.setApiKey("3e9ed211-3558-476a-ab52-9b29735e3a9e");
         setContentView(R.layout.activity_sight_list);
 
         Bundle arguments = getIntent().getExtras();

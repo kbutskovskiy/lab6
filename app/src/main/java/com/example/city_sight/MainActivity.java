@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.yandex.mapkit.MapKitFactory;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     Button nextActivity;
@@ -19,6 +21,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        MapKitFactory.setApiKey("3e9ed211-3558-476a-ab52-9b29735e3a9e");
+        MapKitFactory.initialize(this);
         setContentView(R.layout.activity_main);
 
         nextActivity = findViewById(R.id.nextActivity);
