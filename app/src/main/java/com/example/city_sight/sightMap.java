@@ -32,6 +32,8 @@ import com.yandex.mapkit.map.PlacemarkMapObject;
 import com.yandex.mapkit.mapview.MapView;
 import com.yandex.runtime.ui_view.ViewProvider;
 
+import java.io.File;
+
 public class sightMap extends AppCompatActivity {
     MapView mapview;
     private static final int REQUEST_CODE_LOCATION = 1;
@@ -60,13 +62,9 @@ public class sightMap extends AppCompatActivity {
                 new CameraPosition(sight.getCoordinates(), 16.0f, 0.0f, 0.0f),
                 new Animation(Animation.Type.SMOOTH, 0),
                 null);
-        ImageView sightPhoto;
 
-// Внутри onCreate()
-        sightPhoto = findViewById(R.id.sightPhoto);
-
-// Загрузите фотографию достопримечательности по URL-адресу с помощью библиотеки Picasso
-        Picasso.get().load(sight.getPhoto()).into(sightPhoto);
+        ImageView sightImageView = findViewById(R.id.sightPhoto);
+        Picasso.get().load(sight.getPhoto()).into(sightImageView);
 
 
         /*final boolean[] focusOnUserLocation = {true};
@@ -104,8 +102,7 @@ public class sightMap extends AppCompatActivity {
                     public void onLocationUpdated(@NonNull Location location) {
                         // Here you can get the user's location and move the map to it
                         Point userLocation = new Point(location.getPosition().getLatitude(), location.getPosition().getLongitude());
-                        System.out.println(userLocation.getLatitude() + "   " + userLocation.getLongitude());
-                        // Move the map to the updated user's location
+                        //System.out.println(userLocation.getLatitude() + "   " + userLocation.getLongitude());
                         mapview.getMap().move(
                                 new CameraPosition(new Point(location.getPosition().getLatitude(), location.getPosition().getLongitude()), 14.0f, 0.0f, 0.0f),
                                 new Animation(Animation.Type.SMOOTH, 0),

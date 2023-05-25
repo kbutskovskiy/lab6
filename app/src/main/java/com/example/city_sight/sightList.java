@@ -106,6 +106,7 @@ public class sightList extends AppCompatActivity{
         intent.putExtra("workHours", sight.getWorkHours());
         intent.putExtra("latitude", sight.getCoordinates().getLatitude());
         intent.putExtra("longitude", sight.getCoordinates().getLongitude());
+        intent.putExtra("photo", sight.getPhoto());
         startActivity(intent);
     }
 }
