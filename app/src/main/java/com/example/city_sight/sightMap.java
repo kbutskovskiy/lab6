@@ -1,17 +1,21 @@
 package com.example.city_sight;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
+import android.content.pm.PackageManager;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.os.Bundle;
-import android.widget.Button;
-import android.widget.TextView;
-
+import com.squareup.picasso.Picasso;
 import com.yandex.mapkit.Animation;
 import com.yandex.mapkit.MapKitFactory;
 import com.yandex.mapkit.geometry.Point;
@@ -21,9 +25,9 @@ import com.yandex.mapkit.location.LocationListener;
 import com.yandex.mapkit.location.LocationManager;
 import com.yandex.mapkit.location.LocationStatus;
 import com.yandex.mapkit.map.CameraPosition;
+import com.yandex.mapkit.map.PlacemarkMapObject;
 import com.yandex.mapkit.mapview.MapView;
-import android.Manifest;
-import android.content.pm.PackageManager;
+import com.yandex.runtime.ui_view.ViewProvider;
 
 public class sightMap extends AppCompatActivity {
     MapView mapview;
@@ -53,6 +57,14 @@ public class sightMap extends AppCompatActivity {
                 new CameraPosition(sight.getCoordinates(), 16.0f, 0.0f, 0.0f),
                 new Animation(Animation.Type.SMOOTH, 0),
                 null);
+        ImageView sightPhoto;
+
+// Внутри onCreate()
+        sightPhoto = findViewById(R.id.sightPhoto);
+
+// Загрузите фотографию достопримечательности по URL-адресу с помощью библиотеки Picasso
+        Picasso.get().load(sight.getPhoto()).into(sightPhoto);
+
 
         mapview.getMap().getMapObjects().addPlacemark(sight.getCoordinates());
 
@@ -78,10 +90,17 @@ public class sightMap extends AppCompatActivity {
                     @Override
                     public void onLocationUpdated(@NonNull Location location) {
                         // Here you can get the user's location and move the map to it
+                        Point userLocation = new Point(location.getPosition().getLatitude(), location.getPosition().getLongitude());
                         mapview.getMap().move(
                                 new CameraPosition(new Point(location.getPosition().getLatitude(), location.getPosition().getLongitude()), 14.0f, 0.0f, 0.0f),
                                 new Animation(Animation.Type.SMOOTH, 0),
                                 null);
+                        View userLocationMarker = LayoutInflater.from(sightMap.this).inflate(R.layout.marker_user_location, null);
+
+                        // Add the user location marker to the map
+                        // Add the user location marker to the map
+                        mapview.getMap().getMapObjects().addPlacemark(userLocation);
+
                     }
 
                     @Override
@@ -99,6 +118,8 @@ public class sightMap extends AppCompatActivity {
         MapKitFactory.getInstance().onStop();
         super.onStop();
     }
+
+
 
     /*@Override
     public void onBackPressed(){

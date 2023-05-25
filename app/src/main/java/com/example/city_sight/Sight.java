@@ -4,6 +4,10 @@ import com.yandex.mapkit.geometry.Point;
 
 public class Sight {
     private String title;
+    private String fullDisc;
+    private String workHours;
+    private Point coordinates;
+    private String photo;
 
     public void setWorkHours(String workHours) {
         this.workHours = workHours;
@@ -56,7 +60,10 @@ public class Sight {
         return title;
     }
 
-    private String fullDisc;
-    private String workHours;
-    private Point coordinates;
+    public String getPhoto() {
+        return this.photo;
+    }
+    public void setPhotoUrl(String photo) {
+        this.photo = photo;
+    }
 }

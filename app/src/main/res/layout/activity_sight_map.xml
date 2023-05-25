@@ -24,6 +24,14 @@
         android:textColor="#47E30E"
         android:textSize="20sp" />
 
+    <ImageView
+        android:id="@+id/sightPhoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:src="@drawable/placeholder_image" />
+
     <Button
         android:id="@+id/showLocation"
         android:layout_width="wrap_content"

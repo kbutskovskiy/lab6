@@ -77,6 +77,7 @@ public class sightList extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sight_list);
+        sight1.setPhotoUrl("https://w-dog.ru/wallpapers/2/2/441811152465127/moskva-rossiya-kreml-gorod.jpg");
 
         Bundle arguments = getIntent().getExtras();
         user.setName(arguments.getString("name"));
