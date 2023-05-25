@@ -24,7 +24,10 @@ import com.yandex.mapkit.location.Location;
 import com.yandex.mapkit.location.LocationListener;
 import com.yandex.mapkit.location.LocationManager;
 import com.yandex.mapkit.location.LocationStatus;
+import com.yandex.mapkit.map.CameraListener;
 import com.yandex.mapkit.map.CameraPosition;
+import com.yandex.mapkit.map.CameraUpdateReason;
+import com.yandex.mapkit.map.Map;
 import com.yandex.mapkit.map.PlacemarkMapObject;
 import com.yandex.mapkit.mapview.MapView;
 import com.yandex.runtime.ui_view.ViewProvider;
@@ -66,6 +69,16 @@ public class sightMap extends AppCompatActivity {
         Picasso.get().load(sight.getPhoto()).into(sightPhoto);
 
 
+        /*final boolean[] focusOnUserLocation = {true};
+
+        mapview.getMap().addCameraListener(new CameraListener() {
+            @Override
+            public void onCameraPositionChanged(@NonNull Map map, @NonNull CameraPosition cameraPosition, @NonNull CameraUpdateReason cameraUpdateReason, boolean b) {
+                focusOnUserLocation[0] = false;
+            }
+        });*/
+
+
         mapview.getMap().getMapObjects().addPlacemark(sight.getCoordinates());
 
         textView = (TextView) findViewById(R.id.mapTitle);
@@ -91,13 +104,13 @@ public class sightMap extends AppCompatActivity {
                     public void onLocationUpdated(@NonNull Location location) {
                         // Here you can get the user's location and move the map to it
                         Point userLocation = new Point(location.getPosition().getLatitude(), location.getPosition().getLongitude());
+                        System.out.println(userLocation.getLatitude() + "   " + userLocation.getLongitude());
+                        // Move the map to the updated user's location
                         mapview.getMap().move(
                                 new CameraPosition(new Point(location.getPosition().getLatitude(), location.getPosition().getLongitude()), 14.0f, 0.0f, 0.0f),
                                 new Animation(Animation.Type.SMOOTH, 0),
                                 null);
-                        View userLocationMarker = LayoutInflater.from(sightMap.this).inflate(R.layout.marker_user_location, null);
 
-                        // Add the user location marker to the map
                         // Add the user location marker to the map
                         mapview.getMap().getMapObjects().addPlacemark(userLocation);
 
