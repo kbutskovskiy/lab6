@@ -24,6 +24,18 @@
         android:textColor="#47E30E"
         android:textSize="20sp" />
 
+    <Button
+        android:id="@+id/showLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Показать себя на карте"
+        app:layout_constraintBottom_toTopOf="@+id/nextActivity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailInput"
+        android:layout_marginTop="20dp"/>
+
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"

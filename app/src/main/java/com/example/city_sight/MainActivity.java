@@ -1,5 +1,6 @@
 package com.example.city_sight;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -12,11 +13,18 @@ import android.widget.Toast;
 
 import com.yandex.mapkit.MapKitFactory;
 
+
+//#TODO: Под окно где карта, перед картой фотография достопр. + если фотки нет, то дефолтная фотка
+//#TODO: В любом навигаторе есть кнопка найти себя, будем считать, что человек соглашается
+//#TODO: Если нажимает на эту кнопку, то показывает достопримечательность в опр. радиусе
+//#TODO: Радиус задаем в коде либо одна достопр. либо все в этом радиусе.
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     Button nextActivity;
 
     User user = new User();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
