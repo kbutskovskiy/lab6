@@ -57,6 +57,12 @@ public class sightMap extends AppCompatActivity {
         sight.setFullDisc(arguments.getString("fullDisc"));
         sight.setWorkHours(arguments.getString("workHours"));
         sight.setCoordinates(new Point((Double) arguments.get("latitude"), (Double) arguments.get("longitude")));
+        if (arguments.getString("photo") != null) {
+            sight.setPhotoUrl(arguments.getString("photo"));
+        }
+        else{
+            sight.setPhotoUrl("https://sun9-7.userapi.com/impf/c846323/v846323544/1c8741/mDptwAmitT4.jpg?size=537x240&quality=96&sign=ebac0c70450d5937f9eaa431ae9e9b2f&type=share");
+        }
         mapview = (MapView)findViewById(R.id.mapview);
         mapview.getMap().move(
                 new CameraPosition(sight.getCoordinates(), 16.0f, 0.0f, 0.0f),
@@ -66,15 +72,6 @@ public class sightMap extends AppCompatActivity {
         ImageView sightImageView = findViewById(R.id.sightPhoto);
         Picasso.get().load(sight.getPhoto()).into(sightImageView);
 
-
-        /*final boolean[] focusOnUserLocation = {true};
-
-        mapview.getMap().addCameraListener(new CameraListener() {
-            @Override
-            public void onCameraPositionChanged(@NonNull Map map, @NonNull CameraPosition cameraPosition, @NonNull CameraUpdateReason cameraUpdateReason, boolean b) {
-                focusOnUserLocation[0] = false;
-            }
-        });*/
 
 
         mapview.getMap().getMapObjects().addPlacemark(sight.getCoordinates());
@@ -129,17 +126,6 @@ public class sightMap extends AppCompatActivity {
         super.onStop();
     }
 
-
-
-    /*@Override
-    public void onBackPressed(){
-        super.onBackPressed();
-        Intent intent = new Intent(this, sightList.class);
-        intent.putExtra("name", user.getName());
-        intent.putExtra("surname", user.getSurname());
-        intent.putExtra("email", user.getEmail());
-        startActivity(intent);
-    }*/
 
     @Override
     protected void onStart() {

@@ -7,7 +7,7 @@ public class Sight {
     private String fullDisc;
     private String workHours;
     private Point coordinates;
-    private String photo;
+    private String photo = null;
 
     public void setWorkHours(String workHours) {
         this.workHours = workHours;
